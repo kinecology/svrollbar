@@ -158,7 +158,9 @@
 
     teardownThumb?.()
 
-    vThumb.addEventListener('mousedown', onThumbDown, { passive: true })
+    // FIX: D.A., 1/28/26: remove passive:true for mouse, keep passive:true for touch
+    vThumb.addEventListener('mousedown', onThumbDown); 
+    // vThumb.addEventListener('mousedown', onThumbDown, { passive: true })
     vThumb.addEventListener('touchstart', onThumbDown, { passive: true })
 
     return () => {
